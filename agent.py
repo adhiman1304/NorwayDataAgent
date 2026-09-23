@@ -91,11 +91,11 @@ def _server_command() -> dict[str, Any]:
     return {
         "ssb": {
             **server_template,
-            "args": [str(Path(__file__).parent / "src" / "mcp_workshop" / "ssb_mcp.py")],
+            "args": [str(Path(__file__).parent / "src" / "ssb_mcp.py")],
         },
         "stortinget": {
             **server_template,
-            "args": [str(Path(__file__).parent / "src" / "mcp_workshop" / "stortinget_mcp.py")],
+            "args": [str(Path(__file__).parent / "src" / "stortinget_mcp.py")],
         },
     }
 

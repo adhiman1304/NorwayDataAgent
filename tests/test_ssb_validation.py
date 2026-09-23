@@ -2,7 +2,7 @@ import unittest
 
 from pydantic import ValidationError
 
-from mcp_workshop.ssb_mcp import (
+from src.ssb_mcp import (
     FindStatisticsRequest,
     MetadataRequest,
     SampleRequest,

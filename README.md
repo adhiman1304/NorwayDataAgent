@@ -73,10 +73,9 @@ This starts the MCP servers and opens an interactive chat loop. The model can ca
 ├── pyproject.toml
 ├── README.md
 ├── src/
-│   └── mcp_workshop/
-│       ├── __init__.py
-│       ├── ssb_mcp.py
-│       └── stortinget_mcp.py
+│   ├── __init__.py
+│   ├── ssb_mcp.py
+│   └── stortinget_mcp.py
 ├── tests/
 │   ├── test_ssb_validation.py
 │   └── test_stortinget_security.py

@@ -1,7 +1,7 @@
 [project]
-name = "mcp-workshop"
+name = "norway-data-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Uses an AI agent connect to custom MCPs wrapping publicly avaiable APIs"
 readme = "README.md"
 authors = [
     { name = "Anil Kumar Dhiman", email = "103564529+adhiman1304@users.noreply.github.com" }
@@ -21,3 +21,7 @@ dependencies = [
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = "src"

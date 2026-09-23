@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from mcp_workshop import stortinget_mcp
+from src import stortinget_mcp
 from pydantic import ValidationError
 
 
@@ -32,7 +32,7 @@ class FakeClient:
 
 class StortingetSecurityTests(unittest.IsolatedAsyncioTestCase):
     async def test_out_of_scope_operation_is_rejected_before_http(self):
-        with patch("mcp_workshop.stortinget_mcp.httpx.AsyncClient") as client:
+        with patch("src.stortinget_mcp.httpx.AsyncClient") as client:
             payload, error = await stortinget_mcp._get_json("moter")
 
         self.assertIsNone(payload)
@@ -42,7 +42,7 @@ class StortingetSecurityTests(unittest.IsolatedAsyncioTestCase):
     async def test_approved_operation_uses_fixed_endpoint_mapping(self):
         fake_client = FakeClient()
         with patch(
-            "mcp_workshop.stortinget_mcp.httpx.AsyncClient",
+            "src.stortinget_mcp.httpx.AsyncClient",
             return_value=fake_client,
         ):
             payload, error = await stortinget_mcp._get_json("representatives")
