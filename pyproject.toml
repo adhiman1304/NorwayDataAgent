@@ -1,0 +1,23 @@
+[project]
+name = "mcp-workshop"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Anil Kumar Dhiman", email = "103564529+adhiman1304@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=1.0.0,<2",
+    "httpx>=0.28.1",
+    "langchain>=1.4.2",
+    "langchain-mcp-adapters>=0.3.1",
+    "mcp>=1.24.0,<2",
+    "langchain-openai>=1.6.3",
+    "langgraph>=1.2.12",
+    "python-dotenv>=1.2.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
