@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root { font-family: "Space Grotesk", sans-serif; color: #17231d; background: #e7ebe2; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+.shell { min-height: 100vh; padding: 5vw 7vw; background: radial-gradient(circle at 90% 5%, #d4e4b4 0, transparent 31%), linear-gradient(135deg, #eef0e9, #dfe5dc); }
+.masthead { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: auto; border-bottom: 1px solid #9aa99b; padding-bottom: 3.5rem; }
+.kicker, .message-label, .status, .index, .composer label { font: 500 .72rem "DM Mono", monospace; letter-spacing: .08em; }
+h1 { max-width: 720px; margin: .6rem 0 1rem; font-size: clamp(3rem, 8vw, 7.8rem); line-height: .88; letter-spacing: -.06em; font-weight: 600; }
+.lede { font-size: 1.15rem; color: #536259; }
+.status { display: flex; align-items: center; gap: .55rem; margin-top: .8rem; white-space: nowrap; }
+.status i { display: block; width: .55rem; height: .55rem; border-radius: 50%; background: #76a54a; box-shadow: 0 0 0 5px #c8d7bb; }
+.workspace { max-width: 860px; margin: 4rem auto 0; }
+.conversation { min-height: 25rem; border-left: 1px solid #9aa99b; padding-left: 2rem; }
+.empty-state { padding: 2rem 0 4rem; max-width: 510px; }
+.index { color: #769472; }
+.empty-state h2 { font-size: 2rem; letter-spacing: -.04em; margin: 2rem 0 .75rem; }
+.empty-state p { color: #617066; line-height: 1.6; }
+.message { margin: 0 0 2.5rem; max-width: 720px; animation: rise .35s ease both; }
+.message.user { margin-left: 15%; }
+.message-label { color: #769472; }
+.message p { margin: .55rem 0 0; white-space: pre-wrap; line-height: 1.65; font-size: 1.05rem; }
+.message.user p { font-size: 1.3rem; font-weight: 500; }
+.pulse { color: #769472; animation: pulse 1.2s infinite; }
+.composer { margin-top: 2rem; padding: 1.3rem 1.4rem 1.1rem; background: #f5f6f1; border: 1px solid #a8b4a7; box-shadow: 8px 8px 0 #bdcbb7; }
+.composer label { display: block; color: #617066; margin-bottom: .7rem; }
+textarea { width: 100%; resize: vertical; border: 0; outline: 0; background: transparent; color: #17231d; font: 1.15rem "Space Grotesk", sans-serif; line-height: 1.45; }
+.composer-footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-top: .8rem; border-top: 1px solid #d1d8ce; color: #7b897e; font: .72rem "DM Mono", monospace; }
+button { border: 0; background: #17231d; color: #f5f6f1; padding: .8rem 1rem; font: 600 .85rem "Space Grotesk", sans-serif; cursor: pointer; }
+button span { margin-left: .8rem; font-size: 1.1rem; }
+button:disabled { cursor: wait; opacity: .5; }
+.error { color: #9b493b; margin: 1.5rem 0; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 50% { opacity: .35; } }
+@media (max-width: 640px) { .shell { padding: 2rem 1.2rem; } .masthead { display: block; padding-bottom: 2rem; } .status { margin-top: 2rem; } h1 { font-size: 4rem; } .conversation { padding-left: 1rem; } .message.user { margin-left: 0; } .composer-footer { align-items: flex-end; flex-direction: column; } }

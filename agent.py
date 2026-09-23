@@ -129,14 +129,18 @@ IDs or titles whenever tool results provide them. If a tool returns an error, fo
 retry instruction and do not hide the limitation.
 Remember earlier turns in this terminal session. For arithmetic, use
 calculate_percentage_change rather than estimating or pretending to calculate mentally.
+Write the final answer as natural conversational prose. Do not use headings, bold markdown,
+bullet labels, or prefixes such as "AGENT" or "Answer:". Prefer one or two clear sentences,
+for example: "Norway's mean population was 5,635,337 people in 2026 Q2, according to SSB
+table 07236, 'Mean population and population changes per 1000 population.'"
 """.strip()
 
 
-async def answer_question(agent: Any, question: str) -> str:
+async def answer_question(agent: Any, question: str, thread_id: str = SESSION_THREAD_ID) -> str:
     started = time.perf_counter()
     response = await agent.ainvoke(
         {"messages": [{"role": "user", "content": question}]},
-        config={"configurable": {"thread_id": SESSION_THREAD_ID}},
+        config={"configurable": {"thread_id": thread_id}},
     )
     _log_tool_calls(response)
     tool_messages = [message for message in response.get("messages", []) if getattr(message, "type", None) == "tool"]
@@ -156,17 +160,20 @@ async def answer_question(agent: Any, question: str) -> str:
     return answer
 
 
-async def main() -> None:
-    model = build_model()
+async def build_agent() -> Any:
     client = MultiServerMCPClient(_server_command())
     tools = [calculate_percentage_change, *(await client.get_tools())]
     logger.info("Loaded MCP tools: %s", ", ".join(tool.name for tool in tools))
-    agent = create_agent(
-        model,
+    return create_agent(
+        build_model(),
         tools,
         system_prompt=SYSTEM_PROMPT,
         checkpointer=InMemorySaver(),
     )
+
+
+async def main() -> None:
+    agent = await build_agent()
 
     print("SSB + Stortinget agent ready. Ask a data question; type 'exit' to quit.")
     while True:

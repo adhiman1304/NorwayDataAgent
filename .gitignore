@@ -11,3 +11,5 @@ wheels/
 
 .env
 eval-results.json
+frontend/node_modules/
+frontend/dist/
