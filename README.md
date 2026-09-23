@@ -105,6 +105,12 @@ The project includes an evaluator for repeatable quality checks:
 uv run python eval_agent.py --runs 3 --output eval-results.json
 ```
 
+## Run the app
+
+```powershell
+uv run python -m uvicorn api:app --reload --port 8000
+```
+
 This runs scenario-based evaluations and records pass/fail results, tool usage, and summary metrics such as pass rate and pass@k. The generated output may contain model responses and should be treated as test data rather than public documentation.
 
 ## Security notes
