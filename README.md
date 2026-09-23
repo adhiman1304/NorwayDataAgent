@@ -2,6 +2,9 @@
 
 A production-oriented local agent for querying Norwegian public data through safe, constrained MCP tools. The project combines a LangChain agent with secure tool servers for Statistics Norway (SSB) and Stortinget, plus a deterministic calculator for percentage-change operations.
 
+<img width="915" height="1171" alt="image" src="https://github.com/user-attachments/assets/beb8145f-366a-4650-819d-93606c130a54" />
+
+
 ## Why this project exists
 
 This workspace demonstrates a practical pattern for building agentic applications that need access to external data without over-permitting the model. The design emphasizes:
